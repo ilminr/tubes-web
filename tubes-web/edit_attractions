@@ -1,0 +1,85 @@
+<?php
+session_start();
+if ($_SESSION['role'] !== 'admin') {
+    header("Location: index.php");
+    exit;
+}
+
+include 'database.php';
+
+// Cek apakah ID dikirim melalui URL
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    // Ambil data atraksi berdasarkan ID
+    $query = "SELECT * FROM attractions WHERE id = '$id'";
+    $result = $conn->query($query);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+    } else {
+        echo "Attraction not found.";
+        exit;
+    }
+} else {
+    header("Location: admin_dashboard.php");
+    exit;
+}
+
+// Proses form untuk update atraksi
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = $_POST['name'];
+    $description = $_POST['description'];
+    $image = $_FILES['image']['name'];
+    $image_path = "";
+
+    if (!empty($image)) {
+        $image_path = "" . basename($image);
+        move_uploaded_file($_FILES['image']['tmp_name'], $image_path);
+    }
+
+    // Update data di database
+    $query = "UPDATE attractions SET name = '$name', description = '$description'";
+    if (!empty($image)) {
+        $query .= ", image = '$image'";
+    }
+    $query .= " WHERE id = '$id'";
+
+    if ($conn->query($query)) {
+        header("Location: admin_dashboard.php");
+        exit;
+    } else {
+        echo "Error updating record: " . $conn->error;
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Attraction</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Edit Attraction</h1>
+    </header>
+    <main>
+        <form method="POST" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<?php echo $row['name']; ?>" required><br>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required><?php echo $row['description']; ?></textarea><br>
+
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image"><br>
+            <img src="<?php echo $row['image']; ?>" alt="Current Image" width="100"><br>
+
+            <button type="submit">Update Attraction</button>
+        </form>
+    </main>
+</body>
+</html>

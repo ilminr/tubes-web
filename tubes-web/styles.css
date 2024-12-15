@@ -1,0 +1,393 @@
+/* Reset default margin dan padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Font modern */
+    background: url('disneyland.jpg') no-repeat center center fixed;
+    background-size: cover; /* Latar belakang penuh */
+    color: #fff; /* Warna teks putih */
+    text-align: center;
+    scroll-behavior: smooth; /* Animasi smooth saat scroll */
+}
+
+/* Header dengan gradien transparan */
+header {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffc107; /* Warna kuning */
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background: #ffc107;
+    color: #333;
+}
+
+/* Margin untuk konten agar tidak tertutup header */
+main {
+    margin-top: 100px; /* Berikan jarak dari header */
+}
+
+/* Section dengan efek transparansi */
+section {
+    background: rgba(0, 0, 0, 0.6); /* Latar transparan */
+    padding: 40px;
+    border-radius: 10px;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-10px); /* Efek mengangkat saat hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Tombol interaktif */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    background: #ffc107;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #e0a800;
+    transform: scale(1.05); /* Sedikit membesar saat hover */
+}
+
+/* Efek scrolling halus */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Gaya tambahan untuk section animasi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+/* Scrolling Background Animation */
+body {
+    animation: scrollBackground 30s linear infinite;
+}
+
+
+/* Forms */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #0056a3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #004080;
+}
+
+/* Dashboard */
+.attraction {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.attraction img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.attraction h3 {
+    color: #0056a3;
+    margin: 10px 0;
+}
+
+.attraction p {
+    margin: 10px 0;
+}
+
+/* Buttons */
+button, a.button {
+    display: inline-block;
+    background-color: #0056a3;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+button:hover, a.button:hover {
+    background-color: #004080;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #0056a3;
+    color: white;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Edit button */
+a.button {
+    display: inline-block;
+    background-color: #4CAF50; /* Green color for edit button */
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+a.button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+
+
+/* File: styles.css */
+
+/* Login Page */
+body.login-page {
+    background-image: url('disney_background.jpg'); /* Gunakan gambar latar bertema Disneyland */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+}
+
+.login-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Transparansi untuk menonjolkan form */
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.login-container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ffd700; /* Warna emas seperti Disneyland */
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-container label {
+    align-self: flex-start;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: #ffd700;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.login-container button {
+    background-color: #0056a3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #004080;
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+/* Dropdown for Role */
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 1em;
+}
+
+.success-message {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.error-message {
+    background-color: #f44336;
+    color: white;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.learn-more-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    background: #0056a3;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.learn-more-button:hover {
+    background: #0056a3;
+    transform: scale(1.05); /* Efek membesar saat hover */
+    color: #fff;
+}
+
+.explore-now-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    background: #0056a3;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.explore-now-button:hover {
+    background: #0056a3;
+    transform: scale(1.05); /* Efek membesar saat hover */
+    color: #fff;
+}
+
+.get-ticket-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    background: #0056a3;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.get-ticket-button:hover {
+    background: #0056a3;
+    transform: scale(1.05); /* Efek membesar saat hover */
+    color: #fff;
+}
+
